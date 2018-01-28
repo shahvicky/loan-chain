@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Borrower - Loan Chain</title>
+    <!-- Bootstrap core CSS -->
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <!-- Custom fonts for this template -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-inverse bg-inverse">
+      <a class="navbar-brand text-white" href="/">
+        Loan Chain
+      </a>
+      <a class="navbar-brand">
+        
+      </a>
+    </nav>
+
+    <!-- Header -->
+    <header class="intro-header">
+      <div class="container">
+        <div class="intro-message">
+          <h1>Hi! Borrower</h1>
+          <h4>Welcome to Loan Chain</h4>
+          <hr class="intro-divider">
+          <h5>Your Account Address : <span id="account-number"></span></h5>
+          <h5>Your Account Balance : <span id="account-balance"></span> ETH</h5>
+          <hr class="intro-divider">
+          <div class="row">
+            <!-- New Loan Form : Default Style Hidden -->
+            <div class="col-sm-12">
+              <div class="alert alert-danger" id="newloan-form" style="display:none;">
+                <h4 class="alert-heading text-center"><b>No Currently Active Loan! Ask for one here.</b></h4>
+                <form>
+                  <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" class="form-control" id="newloan-amount" name="amount" placeholder="Loan Amount">
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Due Date:</label>
+                    <input type="date" class="form-control" id="newloan-date" name="date">
+                  </div>
+
+                  <div class="form-group">
+                      <label class="control-label">Choose Collateral</label>
+                      <div class="selectContainer">
+                          <select name="mortgage" id="newloan-mortgage" class="form-control">
+<!--                               <option value=""></option> -->
+                          </select>
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-default">Ask for Money</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Past Loan Details Table -->
+            <div class="col-sm-12">
+              <h4><b>Your Past Loan Details</b></h4>
+              <table id="loan-rows" class="table table-striped table-hover">
+                <thead>
+                  <tr class="info">
+                    <th>Loan Id</th>
+                    <th>Loan State</th>
+                    <th>Due Date</th>
+                    <th>Amount Asked</th>
+                    <th>Collateral Given</th>
+                    <th>Amount Collected</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SHOW LOAN DETAILS MODAL -->
+      <div class="modal fade" id="loanDetailsModal" tabindex="-1" role="dialog" aria-labelledby="loanDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" style="display:inline-block;"><b>Proposal Details</b></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Proposal Count : <span id="loan-proposal-count"></span></p>
+              <table id="loan-proposal-details" class="table table-bordered">
+                <thead>
+                  <tr>
+                    <td>Amount</td>
+                    <td>Rate of Interest</td>
+                    <td>Take Action</td>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <p>Repay Amount : <span id="loan-repay-amount"></span></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </header>
+  </body>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="borrower.js"></script>
+</html>
